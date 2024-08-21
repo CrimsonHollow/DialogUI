@@ -38,7 +38,7 @@ function DGossipFrame()
     local frame = GossipFrame
 
     frame:SetBackdrop({
-        bgFile = "Interface\\AddOns\\DialogUI\\UI\\Parchment",
+        bgFile = "Interface\\AddOns\\DialogUI\\UI\\Parchment1",
         edgeFile = nil,
         tile = false,
         tileEdge = false,
@@ -90,9 +90,9 @@ local function SetButtonProperties(button, normalTexture, highlightTexture, push
 end
 
 -- Goodbye Button
-SetButtonProperties(GossipFrameGreetingGoodbyeButton, "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Common",
-    "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front", "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Common",
-    128, 32, "BOTTOMRIGHT", "BOTTOMRIGHT", -80, 50, "Ivory")
+SetButtonProperties(GossipFrameGreetingGoodbyeButton, "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
+    "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front", "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
+    128, 32, "BOTTOMRIGHT", "BOTTOMRIGHT", -80, 50, "DarkModeGrey90")
 
 
 ---------------------------------Fonts & Buttons--------------------------------
@@ -102,6 +102,12 @@ local COLORS = {
     DarkBrown = { 0.19, 0.17, 0.13 },
     LightBrown = { 0.50, 0.36, 0.24 },
     Ivory = { 0.87, 0.86, 0.75 },
+	White = { 1, 1, 1 },
+	DarkModeGrey90 = {0.9, 0.9, 0.9},
+    DarkModeGrey70 = {0.7, 0.7, 0.7},
+    DarkModeGrey50 = {0.5, 0.5, 0.5},
+    DarkModeGold = {1, 0.98, 0.8},
+    DarkModeGoldDim = {0.796, 0.784, 0.584},
 };
 
 function SetFontColor(fontObject, key)
@@ -112,8 +118,8 @@ end
 GossipFrameNpcNameText:SetFont("Interface\\AddOns\\DialogUI\\Font\\frizqt___cyr.ttf", 18) --Gossip NPC Name Text (it's been replaced with the title of the Gossip)
 GossipGreetingText:SetFont("Interface\\AddOns\\DialogUI\\Font\\frizqt___cyr.ttf", 14)     --Gossip Greeting Text
 
-SetFontColor(GossipFrameNpcNameText, "DarkBrown")
-SetFontColor(GossipGreetingText, "DarkBrown")
+SetFontColor(GossipFrameNpcNameText, "DarkModeGrey90")
+SetFontColor(GossipGreetingText, "DarkModeGrey90")
 
 
 function SetGossipTitleButtonProperties()
@@ -122,7 +128,7 @@ function SetGossipTitleButtonProperties()
         if button then
             button:SetFont("Interface\\AddOns\\DialogUI\\Font\\frizqt___cyr.ttf", 14)
             button:SetHighlightTexture("Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Gossip")
-            SetFontColor(button, "DarkBrown")
+            SetFontColor(button, "DarkModeGoldDim")
         end
     end
 end

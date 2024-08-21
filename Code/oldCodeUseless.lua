@@ -78,7 +78,7 @@ function QuestFrameGreetingPanel_OnShow()
         "LEFT",
         "TOP",
         4,
-        "DarkBrown"
+        "DarkModeGrey90"
     )
 
     local numActiveQuests = GetNumActiveQuests();
@@ -102,7 +102,7 @@ function QuestFrameGreetingPanel_OnShow()
             "LEFT",
             "TOP",
             4,
-            "DarkBrown"
+            "DarkModeGrey90"
         )
         CurrentQuestsText:Show();
 

@@ -1,6 +1,6 @@
 ## Interface: 11200
 ## Title: DialogUI
-## Author: Sxus
+## Author: Delirium/Ark
 ## Version: 0.0.1
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
