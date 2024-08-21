@@ -10,9 +10,12 @@ The icons are made separately because the only way to put them in the addon is t
 
 # Preview
 
-[![Screenshot-2024-04-19-201930.png](https://i.postimg.cc/MftHqgyq/Screenshot-2024-04-19-201930.png)](https://postimg.cc/MftHqgyq) | [![Screenshot-2024-04-19-201936.png](https://i.postimg.cc/G4tT5dZc/Screenshot-2024-04-19-201936.png)](https://postimg.cc/G4tT5dZc)
+![image](https://github.com/user-attachments/assets/982d9b1c-c74d-4a75-9f6d-c84bbb011579) | ![image](https://github.com/user-attachments/assets/4f893d99-1392-47f1-bc2a-6591369296f4)
+
+
 --- | ---
-[![Screenshot-2024-04-19-201947.png](https://i.postimg.cc/67G2BzWg/Screenshot-2024-04-19-201947.png)](https://postimg.cc/67G2BzWg) | [![Screenshot-2024-04-19-202058.png](https://i.postimg.cc/nMf7h8Qk/Screenshot-2024-04-19-202058.png)](https://postimg.cc/nMf7h8Qk)
+![image](https://github.com/user-attachments/assets/8eec451e-3806-4049-94f6-583d3ef60454) | ![image](https://github.com/user-attachments/assets/1e5868ea-d871-4a97-bcc9-892f5657c5c7)
+
 
 
 ## Optional Download
