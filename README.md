@@ -1,7 +1,9 @@
 # DialogUI
 
-This addon was made as a learn project , so the code may be unoptimized. 
+This addon was made as a learn project , Inspired and based on the original.
 this is a re-skin of the default Quest and Gossip Frame, together with new gossip icons.
+
+This is a dark-mode only version of DialogUI with faction specific colors.
 
 The icons are made separately because the only way to put them in the addon is to made the whole Quest and Gossip frame from scratch.
 
