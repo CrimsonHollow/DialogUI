@@ -181,111 +181,99 @@ function QuestFrameButtons()
 	
     -- Accept Button
     SetButtonProperties(QuestFrameAcceptButton, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
+        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Gossip",
         texturePath,
         128, 32, "BOTTOMLEFT", "BOTTOMLEFT", 80, 50, "DarkModeGold")
+		
+		-- Adjust texture coordinates to maintain aspect ratio
+		--SetTexCoord(0, 1, 0, 1)
+		QuestFrameAcceptButton:GetNormalTexture():SetAllPoints(QuestFrameAcceptButton)
+		QuestFrameAcceptButton:GetHighlightTexture():SetAllPoints(QuestFrameAcceptButton)
+		QuestFrameAcceptButton:GetPushedTexture():SetAllPoints(QuestFrameAcceptButton)
 
     -- -- Decline Button
     SetButtonProperties(QuestFrameDeclineButton, "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
+        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Gossip",
         "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
         128, 32, "BOTTOMRIGHT", "BOTTOMRIGHT", -80, 50, "DarkModeGold")
+		
+				QuestFrameDeclineButton:GetNormalTexture():SetAllPoints(QuestFrameDeclineButton)
+			QuestFrameDeclineButton:GetHighlightTexture():SetAllPoints(QuestFrameDeclineButton)
+			QuestFrameDeclineButton:GetPushedTexture():SetAllPoints(QuestFrameDeclineButton)
 
     -- Complete Button
     SetButtonProperties(QuestFrameCompleteQuestButton, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
+        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Gossip",
         texturePath,
         128, 32, "BOTTOMLEFT", "BOTTOMLEFT", 80, 50, "DarkModeGrey90")
+		
+		QuestFrameCompleteQuestButton:GetNormalTexture():SetAllPoints(QuestFrameCompleteQuestButton)
+		QuestFrameCompleteQuestButton:GetHighlightTexture():SetAllPoints(QuestFrameCompleteQuestButton)
+		QuestFrameCompleteQuestButton:GetPushedTexture():SetAllPoints(QuestFrameCompleteQuestButton)
 
     -- Cancel Button
     SetButtonProperties(QuestFrameCancelButton, "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
+        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Gossip",
         "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
         128, 32, "BOTTOMRIGHT", "BOTTOMRIGHT", -80, 50, "DarkModeGrey90")
+		
+		-- Adjust texture coordinates to maintain aspect ratio
+		--SetTexCoord(0, 1, 0, 1)
+		QuestFrameCancelButton:GetNormalTexture():SetAllPoints(QuestFrameCancelButton)
+		QuestFrameCancelButton:GetHighlightTexture():SetAllPoints(QuestFrameCancelButton)
+		QuestFrameCancelButton:GetPushedTexture():SetAllPoints(QuestFrameCancelButton)
 
     -- Goodbye Button
-    SetButtonProperties(QuestFrameGoodbyeButton, "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
-        128, 32, "BOTTOMRIGHT", "BOTTOMRIGHT", -80, 50, "DarkModeGrey90")
+	SetButtonProperties(QuestFrameGoodbyeButton, "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
+		"Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Gossip",
+		"Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
+		128, 32, "BOTTOMRIGHT", "BOTTOMRIGHT", -80, 50, "DarkModeGrey90")
+
+		-- Adjust texture coordinates to maintain aspect ratio
+		--SetTexCoord(0, 1, 0, 1)
+		QuestFrameGoodbyeButton:GetNormalTexture():SetAllPoints(QuestFrameGoodbyeButton)
+		QuestFrameGoodbyeButton:GetHighlightTexture():SetAllPoints(QuestFrameGoodbyeButton)
+		QuestFrameGoodbyeButton:GetPushedTexture():SetAllPoints(QuestFrameGoodbyeButton)
 
     -- GreetingGoodbye Button
     SetButtonProperties(QuestFrameGreetingGoodbyeButton, "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
+        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Gossip",
         "Interface\\AddOns\\DialogUI\\UI\\OptionBackground-Grey",
         128, 32, "BOTTOMRIGHT", "BOTTOMRIGHT", -80, 50, "DarkModeGoldDim")
 
+			-- Adjust texture coordinates to maintain aspect ratio
+		--SetTexCoord(0, 1, 0, 1)
+		QuestFrameGreetingGoodbyeButton:GetNormalTexture():SetAllPoints(QuestFrameGreetingGoodbyeButton)
+		QuestFrameGreetingGoodbyeButton:GetHighlightTexture():SetAllPoints(QuestFrameGreetingGoodbyeButton)
+		QuestFrameGreetingGoodbyeButton:GetPushedTexture():SetAllPoints(QuestFrameGreetingGoodbyeButton)
+
     -- Continue Button
     SetButtonProperties(QuestFrameCompleteButton, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
+        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Gossip",
         texturePath,
         128, 32, "BOTTOMLEFT", "BOTTOMLEFT", 80, 50, "DarkModeGrey90")
+
+		QuestFrameCompleteButton:GetNormalTexture():SetAllPoints(QuestFrameCompleteButton)
+		QuestFrameCompleteButton:GetHighlightTexture():SetAllPoints(QuestFrameCompleteButton)
+		QuestFrameCompleteButton:GetPushedTexture():SetAllPoints(QuestFrameCompleteButton)
 		
-	-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton1, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 0, "CENTER", "CENTER", 70, 50, "DarkModeGold")
+		local texturePath1 = texturePath
+		local highlightTexture = "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Gossip"
+		local buttonWidth = 275
+		local buttonHeight = 20
+		local pointA = "TOP"
+		local pointB = "TOP"
+		local pointX = 70
+		local pointY = 50
+		local fontColor = "DarkModeGold"
 		
-	-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton2, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
+		for i = 1, 11 do
+			local button = getglobal("QuestTitleButton" .. i)
+			if button then
+				SetButtonProperties(button, texturePath, highlightTexture, texturePath, buttonWidth, buttonHeight, pointA, pointB, pointX, pointY, fontColor)
+			end
+		end
 		
-	-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton3, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
-	
-	-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton4, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
-	
-	-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton5, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
-	
-		-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton6, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
-		
-		-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton7, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
-		
-		-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton8, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
-		
-		-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton9, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
-		
-		-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton10, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
-		
-		-- QuestTitleButton Button
-    SetButtonProperties(QuestTitleButton11, texturePath,
-        "Interface\\AddOns\\DialogUI\\UI\\ButtonHighlight-Front",
-        texturePath,
-        275, 20, "TOP", "TOP", 70, 50, "DarkModeGold")
 end
 
 -----------------------------Fonts--------------------------------
