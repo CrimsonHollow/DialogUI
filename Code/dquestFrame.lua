@@ -145,10 +145,7 @@ function textbackdrops()
 end
 
 function hidebackdrops()
-AvailableQuestsTextFrame:Hide()
-QuestObjectiveTextFrame:Hide()
-QuestRewardTitleTextFrame:Hide()
-CurrentQuestsTextFrame:Hide()
+HighlightRewardsFrame:Hide()
 end
 
 local panels = {
@@ -677,7 +674,7 @@ function QuestFrame_OnHide()
 	QuestFrameRewardPanel:Hide();
 	QuestFrameProgressPanel:Hide();
 	CloseQuest();
-	-- hidebackdrops()
+	hidebackdrops()
 	PlaySound("igQuestListClose");
 end
 
