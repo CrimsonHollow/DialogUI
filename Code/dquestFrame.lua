@@ -92,6 +92,45 @@ function DQuestFrame()
 
 end
 
+local function createTextBackdrop(name, parent, anchor, w, h, offsetX, offsetY)
+    local frame = CreateFrame("Frame", name, parent)
+    frame:SetBackdrop({
+        bgFile = "Interface\\AddOns\\DialogUI\\UI\\SubHeaderBackground",
+        edgeFile = nil,
+        tile = false,
+        tileEdge = false,
+        tileSize = 0,
+        edgeSize = 0,
+        insets = {
+            left = 0,
+            right = 0,
+            top = 0,
+            bottom = 0
+        }
+    })
+    frame:SetWidth(w)
+    frame:SetHeight(h)
+    frame:SetFrameStrata("TOOLTIP")
+    frame:SetPoint("LEFT", anchor, "RIGHT", offsetX, offsetY)
+    frame:Hide()
+end
+
+function textbackdrops()
+
+    createTextBackdrop("AvailableQuestsTextFrame", QuestFrame, AvailableQuestsText, 150, 30, -315, 0)
+    createTextBackdrop("QuestTitleTextFrame", QuestFrame, QuestTitleText, 150, 30, -330, 0)
+    createTextBackdrop("CurrentQuestsTextFrame", QuestFrame, CurrentQuestsText, 150, 30, -315, 0)
+	createTextBackdrop("QuestObjectiveTextFrame", QuestFrame, QuestObjectiveText, 150, 30, -280, 30)
+	createTextBackdrop("QuestRewardTitleTextFrame",QuestFrame,QuestRewardTitleText, 85, 20, -295, -238)
+end
+
+function hidebackdrops()
+AvailableQuestsTextFrame:Hide()
+QuestObjectiveTextFrame:Hide()
+QuestRewardTitleTextFrame:Hide()
+CurrentQuestsTextFrame:Hide()
+end
+
 local panels = {
     {
         panel = QuestFrameDetailPanel,
@@ -331,6 +370,8 @@ end
 NpcPortraitFrame()
 QuestFrameButtons()
 FontColorAndSize()
+textbackdrops()
+
 -- ColorFonts()
 
 ---------------Event Handlers-------------------
@@ -357,9 +398,10 @@ QuestFrame:SetScript("OnShow",
         DQuestFrame()
         HandleAllPanels()
 		ColorFonts()
-		
+		QuestSpacerFrame:SetHeight(55)
     end
 )
+
 
 
 
@@ -390,6 +432,7 @@ function QuestFrameRewardPanel_OnShow()
 	local material = QuestFrame_GetMaterial();
 	QuestFrame_SetMaterial(QuestFrameRewardPanel, material);
 	QuestRewardTitleText:Hide()
+	QuestRewardTitleTextFrame:Hide()
 	-- QuestFrame_SetTitleTextColor(QuestRewardTitleText,material);
 	QuestRewardText:SetText(GetRewardText());
 	QuestRewardText:ClearAllPoints()
@@ -546,14 +589,17 @@ function QuestFrameGreetingPanel_OnShow()
 	-- QuestFrame_SetTextColor(GreetingText, material);
 	-- QuestFrame_SetTitleTextColor(CurrentQuestsText, material);
 	-- QuestFrame_SetTitleTextColor(AvailableQuestsText, material);
+	AvailableQuestsTextFrame:Show()
 	local numActiveQuests = GetNumActiveQuests();
 	local numAvailableQuests = GetNumAvailableQuests();
 	if ( numActiveQuests == 0 ) then
 		CurrentQuestsText:Hide();
+		CurrentQuestsTextFrame:Hide()
 		QuestGreetingFrameHorizontalBreak:Hide();
 	else 
 		CurrentQuestsText:SetPoint("TOPLEFT", "GreetingText", "BOTTOMLEFT", 0, -10);
 		CurrentQuestsText:Show();
+		CurrentQuestsTextFrame:Show()
 		QuestTitleButton1:SetPoint("TOPLEFT", "CurrentQuestsText", "BOTTOMLEFT", -10, -5);
 		for i=1, numActiveQuests, 1 do
 			local questTitleButton = getglobal("QuestTitleButton"..i);
@@ -569,6 +615,7 @@ function QuestFrameGreetingPanel_OnShow()
 	end
 	if ( numAvailableQuests == 0 ) then
 		AvailableQuestsText:Hide();
+		AvailableQuestsTextFrame:Hide()
 		QuestGreetingFrameHorizontalBreak:Hide();
 	else
 		if ( numActiveQuests > 0 ) then
@@ -579,7 +626,9 @@ function QuestFrameGreetingPanel_OnShow()
 			AvailableQuestsText:SetPoint("TOPLEFT", "GreetingText", "BOTTOMLEFT", 0, -10);
 		end
 		AvailableQuestsText:Show();
-		getglobal("QuestTitleButton"..(numActiveQuests + 1)):SetPoint("TOPLEFT", "AvailableQuestsText", "BOTTOMLEFT", -10, -5);
+		AvailableQuestsTextFrame:Show();
+		-- showBackdrop()
+		getglobal("QuestTitleButton"..(numActiveQuests + 1)):SetPoint("TOPLEFT", "AvailableQuestsText", "BOTTOMLEFT", -10, -15);
 		for i=(numActiveQuests + 1), (numActiveQuests + numAvailableQuests), 1 do
 			local questTitleButton = getglobal("QuestTitleButton"..i);
 			questTitleButton:SetText(GetAvailableTitle(i - numActiveQuests));
@@ -607,6 +656,7 @@ function QuestFrame_OnHide()
 	QuestFrameRewardPanel:Hide();
 	QuestFrameProgressPanel:Hide();
 	CloseQuest();
+	hidebackdrops()
 	PlaySound("igQuestListClose");
 end
 
@@ -658,8 +708,10 @@ function QuestFrameItems_Update(questState)
 	local  questItemReceiveText = getglobal(questState.."ItemReceiveText")
 	if ( totalRewards == 0 and money == 0 ) then
 		getglobal(questState.."RewardTitleText"):Hide();
+		QuestRewardTitleTextFrame:Hide()
 	else
 		getglobal(questState.."RewardTitleText"):Show();
+		QuestRewardTitleTextFrame:Show()
 		-- QuestFrame_SetTitleTextColor(getglobal(questState.."RewardTitleText"), material);
 		QuestFrame_SetAsLastShown(getglobal(questState.."RewardTitleText"), spacerFrame);
 	end
@@ -849,9 +901,11 @@ function QuestFrameDetailPanel_OnShow()
 	-- QuestFrame_SetTextColor(QuestDescription, material);
 	-- QuestFrame_SetTitleTextColor(QuestDetailObjectiveTitleText, material);
 	QuestObjectiveText:SetText(GetObjectiveText());
+	
 	-- QuestFrame_SetTextColor(QuestObjectiveText, material);
 	QuestFrame_SetAsLastShown(QuestObjectiveText, QuestSpacerFrame);
 	QuestFrameItems_Update("QuestDetail");
+	QuestObjectiveTextFrame:Show()
 	QuestDetailScrollFrame:UpdateScrollChildRect();
 	QuestDetailScrollFrameScrollBar:SetValue(0);
 
