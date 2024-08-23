@@ -8,6 +8,11 @@ This is a dark-mode only version of DialogUI with faction specific colors.
 The icons are made separately because the only way to put them in the addon is to made the whole Quest and Gossip frame from scratch.
 
 
+# Known Issues.
+
+Quest Log Frame can sometimes bug out. Just click on a quest and it should fix itself
+
+
 # Preview
 
 ![image](https://github.com/user-attachments/assets/982d9b1c-c74d-4a75-9f6d-c84bbb011579) ![image](https://github.com/user-attachments/assets/4f893d99-1392-47f1-bc2a-6591369296f4)
