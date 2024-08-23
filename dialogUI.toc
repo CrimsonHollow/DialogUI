@@ -6,3 +6,4 @@
 ## LoadOnDemand: 0
 Code\dquestFrame.lua
 Code\dgossipFrame.lua
+Code\dquestLogFrame.lua
