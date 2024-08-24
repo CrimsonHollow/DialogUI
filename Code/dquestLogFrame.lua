@@ -35,9 +35,20 @@ end
 
 
 -----------------------------------
-
+---Turtle Wow Compatability--------
 -----------------------------------
 
+function tcompat()
+if TargetHPText or TargetHPPercText then ---Detect Twow Client----
+	bgwidth = 750
+	leftoffset = -87
+	else 
+	bgwidth = 384
+	leftoffset = -40
+end 
+end 
+
+tcompat()
 
 function DQuestLogFrame()
     local frame = QuestLogFrame
@@ -50,14 +61,16 @@ function DQuestLogFrame()
         tileSize = 0,
         edgeSize = 0,
         insets = {
-            left = -40,
+            left = leftoffset,
+			 -- left = -40,
             right = 0,
             top = -20,
             bottom = 0
         }
     })
 
-    frame:SetWidth(384)
+	-- frame:SetWidth(384)
+    frame:SetWidth(bgwidth)
     frame:SetHeight(512)
     QuestLogFrameCloseButton:Hide()
 	QuestFrameExitButton:Hide()
@@ -75,10 +88,18 @@ end
 
 
 function MoveQuestLogFrames()
-MoveFrame(QuestLogFrameAbandonButton, QuestLogFrame, -370, -200)
-MoveFrame(QuestFramePushQuestButton, QuestLogFrame, -160, -200)
-MoveFrame(QuestLogTrack, QuestLogFrame, -255, 220)
+ if TargetHPText or TargetHPPercText then ---Detect Twow Client----
+ 
+	MoveFrame(QuestLogFrameAbandonButton, QuestLogFrame, -730, -180)
+	MoveFrame(QuestFramePushQuestButton, QuestLogFrame, -530, -180)
+	MoveFrame(QuestLogTrack, QuestLogFrame, -535, 220)
+ 
+ else
+	MoveFrame(QuestLogFrameAbandonButton, QuestLogFrame, -360, -200)
+	MoveFrame(QuestFramePushQuestButton, QuestLogFrame, -147, -200)
+	MoveFrame(QuestLogTrack, QuestLogFrame, -255, 220)
 -- MoveFrame(QuestLogCollapseAllButton, QuestLogFrame, -430, 200)
+end
 end
 
 ---Buttons------
